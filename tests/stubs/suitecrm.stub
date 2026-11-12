@@ -1,0 +1,19 @@
+<?php
+
+// Signatures of the SuiteCRM classes the legacy override uses, for PHPStan
+// only (SuiteCRM 8.10.2, public/legacy/include/SugarFields).
+
+class SugarFieldCurrency
+{
+    /**
+     * @param array<string, mixed> $parentFieldArray
+     * @param array<string, mixed> $vardef
+     * @param array<string, mixed> $displayParams
+     * @param mixed $col
+     *
+     * @return string
+     */
+    public function getListViewSmarty($parentFieldArray, $vardef, $displayParams, $col)
+    {
+    }
+}

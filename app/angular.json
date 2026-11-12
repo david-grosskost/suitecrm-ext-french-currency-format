@@ -1,0 +1,127 @@
+{
+  "version": 1,
+  "projects": {
+    "FrenchCurrencyFormat": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "name": "",
+          "project": ""
+        }
+      },
+      "root": "extensions/FrenchCurrencyFormat",
+      "sourceRoot": "extensions/FrenchCurrencyFormat/app/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "ngx-build-plus:browser",
+          "options": {
+            "namedChunks": true,
+            "commonChunk": false,
+            "sourceMap": true,
+            "aot": true,
+            "outputPath": "extensions/FrenchCurrencyFormat/public",
+            "index": "extensions/FrenchCurrencyFormat/app/src/index.html",
+            "main": "extensions/FrenchCurrencyFormat/app/src/main.ts",
+            "polyfills": "extensions/FrenchCurrencyFormat/app/src/polyfills.ts",
+            "tsConfig": "extensions/FrenchCurrencyFormat/app/tsconfig.app.json",
+            "assets": [
+              "extensions/FrenchCurrencyFormat/app/src/favicon.ico",
+              "extensions/FrenchCurrencyFormat/app/src/assets"
+            ],
+            "styles": [
+              "extensions/FrenchCurrencyFormat/app/src/styles.scss"
+            ],
+            "scripts": [],
+            "extraWebpackConfig": "extensions/FrenchCurrencyFormat/app/webpack.config.js"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "extensions/FrenchCurrencyFormat/app/src/environments/environment.ts",
+                  "with": "extensions/FrenchCurrencyFormat/app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ],
+              "extraWebpackConfig": "extensions/FrenchCurrencyFormat/app/webpack.prod.config.js"
+            },
+            "dev": {
+              "outputPath": "public/extensions/FrenchCurrencyFormat"
+            }
+          }
+        },
+        "serve": {
+          "builder": "ngx-build-plus:dev-server",
+          "options": {
+            "browserTarget": "services:build",
+            "extraWebpackConfig": "extensions/FrenchCurrencyFormat/app/webpack.config.js",
+            "port": 3000
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "services:build:production",
+              "extraWebpackConfig": "extensions/FrenchCurrencyFormat/app/webpack.prod.config.js"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "buildTarget": "services:build"
+          }
+        },
+        "test": {
+          "builder": "ngx-build-plus:karma",
+          "options": {
+            "main": "extensions/FrenchCurrencyFormat/app/src/test.ts",
+            "polyfills": "extensions/FrenchCurrencyFormat/app/src/polyfills.ts",
+            "tsConfig": "extensions/FrenchCurrencyFormat/app/tsconfig.spec.json",
+            "karmaConfig": "extensions/FrenchCurrencyFormat/app/karma.conf.js",
+            "assets": [
+              "extensions/FrenchCurrencyFormat/app/src/favicon.ico",
+              "extensions/FrenchCurrencyFormat/app/src/assets"
+            ],
+            "styles": [
+              "extensions/FrenchCurrencyFormat/app/src/styles.scss"
+            ],
+            "scripts": [],
+            "extraWebpackConfig": "extensions/FrenchCurrencyFormat/app/webpack.config.js"
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "extensions/FrenchCurrencyFormat/app/e2e/protractor.conf.js",
+            "devServerTarget": "services:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "services:serve:production",
+              "protractorConfig": ""
+            }
+          }
+        }
+      }
+    }
+  }
+}
