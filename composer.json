@@ -1,6 +1,6 @@
 {
-    "name": "david-grosskost/suitecrm-ext-exemple",
-    "description": "Extension d'exemple du modèle des extensions SuiteCRM.",
+    "name": "david-grosskost/suitecrm-ext-french-currency-format",
+    "description": "Format monétaire français dans SuiteCRM 8 : symbole après le montant.",
     "type": "suitecrm-extension",
     "license": "proprietary",
     "require": {
